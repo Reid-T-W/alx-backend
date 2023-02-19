@@ -60,4 +60,4 @@ class Server:
         if start > len(dataset) or end > len(dataset):
             # print(f"Length {len(dataset )}, start {start}, end {end}")
             return []
-        return(dataset[start:end])
+        return(dataset[start:end-1])
