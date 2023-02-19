@@ -47,6 +47,8 @@ class Server:
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
         dataset = self.dataset()
+        if (page >= len(dataset) or page_size >= len(dataset)):
+            return []
         if (page * page_size) >= len(dataset):
             return []
         # if page > len(dataset) or page_size > len(dataset):
