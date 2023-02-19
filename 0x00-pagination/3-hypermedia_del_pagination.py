@@ -57,7 +57,7 @@ class Server:
             A dictionary containing the data, current  index,
             page_size and next_index
         """
-        assert index < len(self.__indexed_dataset)
+        assert index < len(self.__indexed_dataset) and index >= 0
         assert page_size < len(self.__indexed_dataset)
         keys = list(self.__indexed_dataset.keys())
         corrected_index = index
