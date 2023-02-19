@@ -42,9 +42,7 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, index: int = None,
-                        page_size: int = 10) -> Dict[str,
-                                                     Union[int, List[List]]]:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
         Handles pagination in cases were data is deleted in between queries.
         Numerical indexes that are assigned as keys to every row of the data
