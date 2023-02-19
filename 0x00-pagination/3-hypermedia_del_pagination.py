@@ -14,6 +14,9 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """
+        Initializing some variables
+        """
         self.__dataset = None
         self.__indexed_dataset = None
 
@@ -57,6 +60,9 @@ class Server:
         assert index < len(self.__indexed_dataset)
         keys = list(self.__indexed_dataset.keys())
         corrected_index = index
+        # The while loop below handles cases where a deleted index is
+        # encountred. It iterates until it finds the next index that is
+        # not deleted
         while (corrected_index not in keys) and (corrected_index <
                                                  len(self.__indexed_dataset)):
             corrected_index += 1
