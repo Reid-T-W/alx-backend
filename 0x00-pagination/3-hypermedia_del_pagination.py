@@ -58,6 +58,7 @@ class Server:
             page_size and next_index
         """
         assert index < len(self.__indexed_dataset)
+        assert page_size < len(self.__indexed_dataset)
         keys = list(self.__indexed_dataset.keys())
         corrected_index = index
         # The while loop below handles cases where a deleted index is
