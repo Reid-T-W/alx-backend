@@ -51,6 +51,8 @@ class Server:
         #     return []
         # Getting the page
         start, end = index_range(page, page_size)
+        if len(dataset) <= 0:
+            return []
         if start > len(dataset) or end > len(dataset):
             # print(f"Length {len(dataset )}, start {start}, end {end}")
             return []
