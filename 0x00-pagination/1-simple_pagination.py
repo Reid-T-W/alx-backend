@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Server class to paginate a database of popular baby names.
+"""
 
 import csv
 import math
@@ -30,6 +32,7 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """Init method for class server"""
         self.__dataset = None
 
     def dataset(self) -> List[List]:
