@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Server class to paginate a database of popular baby names.
+A method that calculates the index is also included
 """
 
 import csv
@@ -49,19 +50,26 @@ class Server:
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         Given the paging parameters retrieves the correct document
+
+        Parameters
+            page : int
+                The page number
+            page_size: int
+                The size of the page
+
+        Return : List[List]
+            A list of the required documents
         """
         assert type(page) == int and type(page_size) == int
         assert page > 0 and page_size > 0
         dataset = self.dataset()
 
-        # if (page > len(dataset) or page_size > len(dataset)):
-        #     return []
-        # if (page * page_size) > len(dataset):
-        #     return []
-        # Getting the page
+        # Getting the indexes
         start, end = index_range(page, page_size)
-        # if len(dataset) <= 0:
-        #     return []
+
+        # Checking if the index is out of range
         if start > len(dataset) or end > len(dataset):
             return []
+
+        # Retrieving the documents
         return(dataset[start:end])
