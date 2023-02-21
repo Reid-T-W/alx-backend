@@ -4,7 +4,6 @@ Caching class that inherits from the base class, BaseCashing
 Has limited cashing capabilities
 Implements the LRU caching algorithim
 """
-from collections import deque
 import sys
 BaseCaching = __import__('base_caching').BaseCaching
 
