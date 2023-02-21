@@ -19,7 +19,7 @@ class FIFOCache(BaseCaching):
         Creates the dictionary and deque object
         """
         super().__init__()
-        self.queue = deque([], 4)
+        self.queue = deque([], BaseCaching.MAX_ITEMS)
 
     def put(self, key, item):
         """

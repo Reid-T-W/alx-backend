@@ -19,7 +19,7 @@ class LIFOCache(BaseCaching):
         Creates the dictionary and list object
         """
         super().__init__()
-        self.stack = deque([], 4)
+        self.stack = deque([], BaseCaching.MAX_ITEMS)
 
     def put(self, key, item):
         """
