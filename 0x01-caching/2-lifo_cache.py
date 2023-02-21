@@ -2,29 +2,29 @@
 """
 Caching class that inherits from the base class, BaseCashing
 Has limited cashing capabilities
-Implements the FIFO caching algorithim
+Implements the LIFO caching algorithim
 """
 from collections import deque
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
     Caching class that inherits from the base class, BaseCashing
     Has limited cashing capabilities
-    Implements the FIFO caching algorithim
+    Implements the LIFO caching algorithim
     """
     def __init__(self) -> None:
         """
-        Creates the dictionary and deque object
+        Creates the dictionary and list object
         """
         super().__init__()
-        self.queue = deque([], 4)
+        self.stack = deque([], 4)
 
     def put(self, key, item):
         """
         Method that populates the cache given a key and item
-        The FIFO caching algorithim is used to populate the
+        The LIFO caching algorithim is used to populate the
         cache
         """
         if key is None or item is None:
@@ -35,18 +35,18 @@ class FIFOCache(BaseCaching):
         # insert
         if key in self.cache_data.keys():
             # The key is moved to the end of the
-            # queue, since it was updated last
-            self.queue.remove(key)
-            self.queue.append(key)
+            # stack, since it was updated last
+            self.stack.remove(key)
+            self.stack.append(key)
             self.cache_data[key] = item
         else:
             # Checking if the cache limit has reached
-            # and removing the first key that was inserted
-            if (len(self.queue) == 4):
-                removed_key = self.queue.popleft()
+            # and removing the last key that was inserted
+            if (len(self.stack) == 4):
+                removed_key = self.stack.pop()
                 self.cache_data.pop(removed_key)
                 print("DISCARD: {}".format(removed_key))
-            self.queue.append(key)
+            self.stack.append(key)
             self.cache_data[key] = item
 
     def get(self, key):
