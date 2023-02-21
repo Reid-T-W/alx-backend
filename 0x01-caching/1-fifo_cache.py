@@ -29,16 +29,15 @@ class FIFOCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        
-        # Checking if the key exists in the 
+
+        # Checking if the key exists in the
         # dictionary, and performing a simple
         # insert
         if key in self.cache_data.keys():
             self.cache_data[key] = item
-
-        # Checking if the cache limit has reached
-        # and removing the first key that was inserted
         else:
+            # Checking if the cache limit has reached
+            # and removing the first key that was inserted
             if (len(self.queue) == 4):
                 removed_key = self.queue.popleft()
                 self.cache_data.pop(removed_key)
