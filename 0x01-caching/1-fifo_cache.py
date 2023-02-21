@@ -34,6 +34,8 @@ class FIFOCache(BaseCaching):
         # dictionary, and performing a simple
         # insert
         if key in self.cache_data.keys():
+            self.queue.remove(key)
+            self.queue.append(key)
             self.cache_data[key] = item
         else:
             # Checking if the cache limit has reached
