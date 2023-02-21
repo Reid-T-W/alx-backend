@@ -42,7 +42,7 @@ class LIFOCache(BaseCaching):
         else:
             # Checking if the cache limit has reached
             # and removing the last key that was inserted
-            if (len(self.stack) == 4):
+            if (len(self.stack) == BaseCaching.MAX_ITEMS):
                 removed_key = self.stack.pop()
                 self.cache_data.pop(removed_key)
                 print("DISCARD: {}".format(removed_key))

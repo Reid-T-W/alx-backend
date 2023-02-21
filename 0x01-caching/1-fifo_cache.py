@@ -42,7 +42,7 @@ class FIFOCache(BaseCaching):
         else:
             # Checking if the cache limit has reached
             # and removing the first key that was inserted
-            if (len(self.queue) == 4):
+            if (len(self.queue) == BaseCaching.MAX_ITEMS):
                 removed_key = self.queue.popleft()
                 self.cache_data.pop(removed_key)
                 print("DISCARD: {}".format(removed_key))
