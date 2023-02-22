@@ -75,6 +75,11 @@ class LFUCache(BaseCaching):
         return value
 
     def remove_key(self):
+        """
+        Removes a key, using the LFU algorithim, if keys
+        with the same frequency are encountred, the LRU
+        algorithim will be used
+        """
         # For LFU algorithim
         min_freq_value = sys.maxsize
         min_freq_key = None
