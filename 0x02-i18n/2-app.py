@@ -22,7 +22,9 @@ def get_locale():
     """ Get best suited language according to users preference"""
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
+
 babel.init_app(app, locale_selector=get_locale)
+
 
 @app.route('/', strict_slashes=False)
 def render_index_html():
