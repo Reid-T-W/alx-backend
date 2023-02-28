@@ -7,12 +7,10 @@ app = Flask(__name__)
 
 
 class Config():
+    """ Configuration setting for flask app"""
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
-# app.config['LANGUAGES'] = ["en", "fr"]
-# app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-# app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
 
 
 app.config.from_object(Config)
@@ -21,7 +19,7 @@ babel = Babel(app)
 
 @app.route('/', strict_slashes=False)
 def render_index_html():
-    """ Renders the 0-index.html """
+    """ Renders the 1-index.html """
     return render_template('0-index.html')
 
 
