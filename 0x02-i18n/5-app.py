@@ -28,9 +28,6 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-# babel.init_app(app, locale_selector=get_locale)
-
-
 users = {
     1: {"name": "Balou", "locale": "fr", "timezone": "Europe/Paris"},
     2: {"name": "Beyonce", "locale": "en", "timezone": "US/Central"},
@@ -61,7 +58,6 @@ def before_request():
     """
     user = get_user()
     user = setattr(g, 'user', user)
-    # g.user = user
 
 
 @app.route('/', strict_slashes=False)
@@ -73,8 +69,6 @@ def render_index_html():
     else:
         logged_in_status = _('logged_in_as', username=user.get('name'))
     return render_template('5-index.html',
-                           home_title=gettext("home_title"),
-                           home_header=gettext("home_header"),
                            logged_in_status=logged_in_status,
                            user=user)
 
