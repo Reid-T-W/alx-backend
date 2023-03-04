@@ -107,13 +107,13 @@ def before_request():
 
 @app.route('/', strict_slashes=False)
 def render_index_html():
-    """ Renders the 6-index.html """
+    """ Renders the 7-index.html """
     user = getattr(g, 'user')
     if user is None:
         logged_in_status = gettext("not_logged_in")
     else:
         logged_in_status = _('logged_in_as', username=user.get('name'))
-    return render_template('6-index.html',
+    return render_template('7-index.html',
                            logged_in_status=logged_in_status,
                            user=user)
 
