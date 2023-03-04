@@ -45,7 +45,7 @@ def get_locale():
 
 
 @babel.timezoneselector
-def get_timezone():
+def get_timezone() -> str:
     # Checking if timezone is specified in url (1st priority)
     user_timezone = request.args.get('timezone')
     if user_timezone is not None:
