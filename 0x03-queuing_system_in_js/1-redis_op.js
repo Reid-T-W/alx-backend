@@ -22,29 +22,3 @@ function displaySchoolValue(schoolName) {
 displaySchoolValue('Holberton');
 setNewSchool('HolbertonSanFrancisco', '100');
 displaySchoolValue('HolbertonSanFrancisco');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// displaySchoolValue('Holberton');
-// setNewSchool('HolbertonSanFrancisco', '100').then(() => {
-//     console.log("in here 2")
-//     displaySchoolValue('HolbertonSanFrancisco')
-// })
-// displaySchoolValue('HolbertonSanFrancisco');
-
-// setNewSchool('HolbertonSanFrancisco', '100').then(() => {
-//     console.log("promise resolved")
-//     displaySchoolValue('HolbertonSanFrancisco')
-// }).catch((err) => {
-//     console.log(err)})
