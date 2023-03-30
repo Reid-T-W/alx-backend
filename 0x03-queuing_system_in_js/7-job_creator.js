@@ -48,15 +48,15 @@ const jobs = [
   const push_notification_code_2 = kue.createQueue();
 
   for (const job of jobs) {
-    const job = push_notification_code_2.create('object', job).save();
+    const queuedJob = push_notification_code_2.create('object', job).save();
 
-    job.on('complete',function() {
-        console.log(`Notification job ${job.id} completed`);
+    queuedJob.on('complete',function() {
+        console.log(`Notification job ${queuedJob.id} completed`);
     }).on('progress', function(progress) {
-        console.log(`Notification job JOB_ID ${progress}% complete`)
+        console.log(`Notification job ${queuedJob.id} ${progress}% complete`)
     }).on('failed', function(err){
-        console.log(`Notification job ${job.id} failed: ${err}`);
+        console.log(`Notification job ${queuedJob.id} failed: ${err}`);
     }).on('enqueue', function(){
-        console.log(`Notification job created: ${job.id}`);
+        console.log(`Notification job created: ${queuedJob.id}`);
     })
   }
